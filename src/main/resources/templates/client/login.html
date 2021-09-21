@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Acccess Token Value = ' + ${value}" />
+
+<button id="getToken">Get OauhToken</button>
+<button>Get Protected Resource</button>
+
+<script>
+    $(document).ready(function(){
+        $("#getToken").click(function() {
+            window.location.replace("http://localhost:8080/authorize?client_id=123&redirect_uri=http://localhost:8080/callback&response_type=code&state=randomState");
+            // var data = {client_id: "123", redirect_uri: "345", response_type: "code"};
+            // $.get("/authorize", data, function(data, status) {
+            //
+            //     alert("Data: " + data + "\nStatus: " + status);
+            // });
+        });
+    });
+</script>
+
+</body>
+</html>

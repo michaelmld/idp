@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Approve or Deny</title>
+</head>
+<body>
+<p>Approve This client? </p>
+<button id="approve" style="color: green">Approve</button>
+<button id="deny" style="color: darkred">Deny</button>
+
+</body>
+
+
+<script>
+    $(document).ready(function(){
+        $("#approve").click(function() {
+            console.log("clicked?")
+            //redirect ???
+            // window.location.replace("http://localhost:8080/approve?client_id=123&redirect_uri=http://localhost:8080/callback&response_type=code");
+            var data = {client_id: "123", redirect_uri: "345", response_type: "code", state: "someState"};
+            $.get("/approve", data, function(result, status) {
+                alert("Data: " + result + "\nStatus: " + status);
+
+                window.location.replace(result);
+            });
+        });
+    });
+</script>
+
+</html>

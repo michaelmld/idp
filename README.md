@@ -31,3 +31,9 @@ Implicit flow is bad? No backchannel.
 ## Goals
 
 1. Create Authorization Server - analogy would be im the hotel and i give the key to the client, who can then access the gym, pool, and room etc.
+
+
+## Spring Boot
+1. https://www.baeldung.com/spring-controller-vs-restcontroller Controller vs RestController
+2. https://spring.io/guides/gs/spring-boot/
+3. https://dzone.com/articles/using-the-spring-requestmapping-annotation

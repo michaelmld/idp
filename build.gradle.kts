@@ -26,6 +26,11 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	//Michael's Dependencies
+	implementation( "com.squareup.okhttp3:okhttp:4.5.0")
+	implementation ("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+")
+
 }
 
 tasks.withType<KotlinCompile> {
