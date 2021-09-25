@@ -6,6 +6,14 @@ plugins {
 	kotlin("jvm") version "1.5.21"
 	kotlin("plugin.spring") version "1.5.21"
 	kotlin("plugin.jpa") version "1.5.21"
+	kotlin("plugin.allopen") version "1.4.32"
+	//https://spring.io/guides/tutorials/spring-boot-kotlin/ about the allopen
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.Embeddable")
+	annotation("javax.persistence.MappedSuperclass")
 }
 
 group = "com.michael"
@@ -25,11 +33,15 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
+	implementation ("org.springframework.boot:spring-boot-starter-security")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+//	testImplementation ("org.springframework.security:spring-security-test")
 
 	//Michael's Dependencies
 	implementation( "com.squareup.okhttp3:okhttp:4.5.0")
 	implementation ("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+")
+
 
 }
 

@@ -1,4 +1,4 @@
-package com.michael.idp.controllers
+package com.michael.idp.controllers.server.controllers.oauth
 
 import org.springframework.web.bind.annotation.*
 

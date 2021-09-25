@@ -23,6 +23,5 @@ class CommonRequestIdFilter: OncePerRequestFilter() {
             response.addHeader(COMMON_REQUEST_ID, commonRequestId)
         }
         filterChain.doFilter(request, response)
-
     }
 }

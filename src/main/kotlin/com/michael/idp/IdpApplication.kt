@@ -18,7 +18,7 @@ class IdpApplication {
 			val beanNames: Array<String> = ctx.getBeanDefinitionNames()
 			Arrays.sort(beanNames)
 			for (beanName in beanNames) {
-				println(beanName)
+//				println(beanName)
 			}
 		}
 	}

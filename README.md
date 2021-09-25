@@ -27,7 +27,7 @@ BackChannel - client to server https request(normal). Example == hand delivering
 FrontChannel - using browser address bar to handle package. Leaves room for a lot of "Cheating" since you dont know where the package is going / when you received the response if it was tampered. Using broswer to transfer data.
 
 Implicit flow is bad? No backchannel.
-
+https://aaronparecki.com/oauth-2-simplified/
 ## Goals
 
 1. Create Authorization Server - analogy would be im the hotel and i give the key to the client, who can then access the gym, pool, and room etc.
@@ -35,5 +35,9 @@ Implicit flow is bad? No backchannel.
 
 ## Spring Boot
 1. https://www.baeldung.com/spring-controller-vs-restcontroller Controller vs RestController
-2. https://spring.io/guides/gs/spring-boot/
-3. https://dzone.com/articles/using-the-spring-requestmapping-annotation
+2. Getting started tutorial https://spring.io/guides/gs/spring-boot/
+3. Request Mapping Annotation - https://dzone.com/articles/using-the-spring-requestmapping-annotation
+4. Securing your web app - https://spring.io/guides/gs/securing-web/
+
+### Spring Boot Annotations
+1. @Component - allows Spring to automatically detect our custom beans. https://www.baeldung.com/spring-component-annotation

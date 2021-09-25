@@ -7,21 +7,75 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Acccess Token Value = ' + ${value}" />
+<p th:text="'Acccess Token Value = ' + ${accessToken}" />
 
 <button id="getToken">Get OauhToken</button>
-<button>Get Protected Resource</button>
+<button id="getResource">Get Protected Resource</button>
 
 <script>
     $(document).ready(function(){
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:8080/server/csrf",
+            success : function (response) {
+                console.log(response)
+                var j = JSON.parse(response)
+                alert(j.csrfToken)
+                document.cookie='X-CSRF-Token='+j.csrfToken;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError)
+                //TODO IF THERE IS AN ERROR we need to see if we can get a refresh token
+                //Id prefer to do this in my client code, its too annoying doing it in ajax
+                //Fetch /token , then fetch resource so user never knows AT timed out
+                //If AT/RT dont work return an error
+                alert(xhr.status);
+            }
+        })
+
+
+
+
+
         $("#getToken").click(function() {
-            window.location.replace("http://localhost:8080/authorize?client_id=123&redirect_uri=http://localhost:8080/callback&response_type=code&state=randomState");
-            // var data = {client_id: "123", redirect_uri: "345", response_type: "code"};
-            // $.get("/authorize", data, function(data, status) {
+            console.log("touch")
+            window.location.replace("/client/init");
+        });
+
+
+        $("#getResource").click(function() {
+            //https://www.concretepage.com/thymeleaf/thymeleaf-javascript-inline-example-with-variable
+            /*<![CDATA[*/
+            var acc = "[[${accessToken}]]"
+            /*]]>*/
+            console.log(acc)
+            // window.location.replace("http://localhost:8080/resource");
+            //TODO Refresh token flow
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:8080/resource",
+                headers: {
+                    "Authorization": acc
+                },
+                success : function (response) {
+                    console.log(response)
+                    alert("success!!")
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError)
+                    //TODO IF THERE IS AN ERROR we need to see if we can get a refresh token
+                    //Id prefer to do this in my client code, its too annoying doing it in ajax
+                    //Fetch /token , then fetch resource so user never knows AT timed out
+                    //If AT/RT dont work return an error
+                    alert(xhr.status);
+                }
+            })
             //
-            //     alert("Data: " + data + "\nStatus: " + status);
+            //     .done(function(data) {
+            //     console.log(data);
             // });
         });
+
     });
 </script>
 

@@ -17,13 +17,17 @@
 <script>
     $(document).ready(function(){
         $("#approve").click(function() {
-            console.log("clicked?")
             //redirect ???
-            // window.location.replace("http://localhost:8080/approve?client_id=123&redirect_uri=http://localhost:8080/callback&response_type=code");
-            var data = {client_id: "123", redirect_uri: "345", response_type: "code", state: "someState"};
-            $.get("/approve", data, function(result, status) {
-                alert("Data: " + result + "\nStatus: " + status);
+            var state = "[[${state}]]"
+            var cd = "[[${client_id}]]"
+            var rt = "[[${response_type}]]"
+            var ru = "[[${redirect_uri}]]"
 
+
+            // window.location.replace("http://localhost:8080/approve?client_id=123&redirect_uri=http://localhost:8080/callback&response_type=code");
+            var data = {client_id: cd, redirect_uri: ru, response_type: rt, state: state};
+            $.get("/server/approve", data, function(result, status) {
+                console.log("Data: " + result + "\nStatus: " + status);
                 window.location.replace(result);
             });
         });
