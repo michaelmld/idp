@@ -33,7 +33,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
-	implementation ("org.springframework.boot:spring-boot-starter-security")
+//	implementation ("org.springframework.boot:spring-boot-starter-security")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 //	testImplementation ("org.springframework.security:spring-security-test")
@@ -41,6 +41,8 @@ dependencies {
 	//Michael's Dependencies
 	implementation( "com.squareup.okhttp3:okhttp:4.5.0")
 	implementation ("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+")
+	implementation ("com.unboundid.product.scim2:scim2-sdk-common:2.1.3")
+
 
 
 }

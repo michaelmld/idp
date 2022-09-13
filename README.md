@@ -5,6 +5,8 @@ I am creating this project to learn mutliple industry standard concepts. This re
 
 ## Vocabulary
 
+JPA - https://www.geeksforgeeks.org/java-jpa-vs-hibernate/
+
 IDP - An identity provider (IdP) is a service that stores and manages digital identities. Companies use these services to allow their employees or users to connect with the resources they need. They provide a way to manage access, adding or removing privileges, while security remains tight.
 https://www.okta.com/identity-101/why-your-company-needs-an-identity-provider/
 
@@ -41,3 +43,7 @@ https://aaronparecki.com/oauth-2-simplified/
 
 ### Spring Boot Annotations
 1. @Component - allows Spring to automatically detect our custom beans. https://www.baeldung.com/spring-component-annotation
+
+
+Complete the tasks here
+https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
