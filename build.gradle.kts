@@ -1,8 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+	//Lots of googling https://www.baeldung.com/kotlin/gradle-executable-jar
+	//But when i added the plugin application i was able to set the mainclass and it all worked
+	application
 	id("org.springframework.boot") version "2.5.4"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("java")
 	kotlin("jvm") version "1.5.21"
 	kotlin("plugin.spring") version "1.5.21"
 	kotlin("plugin.jpa") version "1.5.21"
@@ -47,6 +51,8 @@ dependencies {
 
 }
 
+
+
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -54,6 +60,11 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
+application {
+	mainClass.set("com.michael.idp.IdpApplicationKt")
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
